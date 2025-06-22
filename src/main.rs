@@ -1,10 +1,18 @@
+use sdl2::{event::Event, keyboard::Keycode};
 use std::{collections::HashSet, time::Duration};
 
-use sdl2::{event::Event, keyboard::Keycode};
+use config::Config;
 
-fn main() -> Result<(), String> {
+mod config;
+
+pub type Result<T> = std::result::Result<T, Error>;
+pub type Error = Box<dyn std::error::Error>;
+
+fn main() -> Result<()> {
     let sdl_context = sdl2::init()?;
     let video_subsystem = sdl_context.video()?;
+
+    let config = Config::load()?;
 
     let _window = video_subsystem
         .window("Keyboard", 800, 600)
