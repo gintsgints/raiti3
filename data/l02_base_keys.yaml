@@ -1,0 +1,242 @@
+pages:
+- title: Home row
+  content: |
+    Home row is a keys on which you put your fingers before start writing.
+    All other keys are entered by moving fingers from home row to key 
+    position.
+    It is very important to put fingers on home row in right way. Your 
+    fingers should be put perpendiculary against keyboard but your
+    palm should be horizontaly against keyboard.
+  content2: |
+    Press <Enter> to continue
+- title: Home row
+  content: |
+    Here is a keyboard wich will lead you in lessons
+  keyboard: true
+  content2: |
+    Press <Enter> to continue
+- title: Home row
+  content: |
+    Home keys for left hand are - a, s, d, f
+    You put left hand fingers excluding thumb on them.
+  show_keys:
+    - row: 3
+      key: 1
+    - row: 3
+      key: 2
+    - row: 3
+      key: 3
+    - row: 3
+      key: 4
+  keyboard: true
+  content2: |
+    Press <Enter> to continue
+- title: Home row
+  content: |
+    Home keys for right hand are - j, k, l, ;
+    You put right hand fingers excluding thumb on them.
+  show_keys:
+    - row: 3
+      key: 7
+    - row: 3
+      key: 8
+    - row: 3
+      key: 9
+    - row: 3
+      key: 10
+  keyboard: true
+  content2: |
+    Press <Enter> to continue
+- title: Home row
+  content: |
+    Let's practice a bit on home row keys.
+    Put fingers on home row keys.
+    At the begining you will tend to look on keyboard to find key
+    positions. Try to use screen keyboard instead.
+    While pressing key you can say letter name.
+  content2: |
+    Press <Enter> to continue
+- title: Home row - exercises
+  keyboard: true
+  content: |
+    Try to enter exercise row and press <Enter> when done
+  exercises:
+    - !OneLineNoEnter asdfasdf
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Home row - exercises
+  keyboard: true
+  content: |
+    Very good! Now this exercise
+  exercises:
+    - !OneLineNoEnter jkl;jkl;
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Enter key
+  content: |
+    Return/Enter key is used on typewriters to return printing head at
+    begining of next line. On PC text editor applications this key
+    is used at end of the paragraph. That is after pressing Enter key
+    curssor is moved to new line.
+    Return/Enter is used to:
+    * show paragraph end
+    * to make empty line
+    * to finish data input in various forms
+  content2: |
+    Press <Enter> to continue
+- title: Enter key
+  content: |
+    Let's practice on Return/Enter key usage.
+    Do not forget about writing technic. Keep fingers bent and perpendiculary
+    against keyboard.
+    Key press will require to move one finger from base position. Quickly
+    move finger to required key, press a key and return to home position.
+  content2: |
+    Press <Enter> to continue
+- title: Enter key
+  keyboard: true
+  content: |
+    To press Enter key, you have to move right hand pinky finger (;)
+    to right.
+  show_keys:
+    - row: 3
+      key: 10
+    - row: 2
+      key: 13
+    - row: 3
+      key: 10
+  content2: |
+    Press <Enter> to continue
+- title: Enter key - exercises
+  keyboard: true
+  content: |
+    Try to complete exercise, finishing it by hiting Enter with pinky
+  exercises:
+    - !OneLineNoEnter asdfjkl;
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Enter key - exercises
+  keyboard: true
+  content: |
+    Continue with exercise
+  exercises:
+    - !OneLineNoEnter asdfjkl;asdfjkl;
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Enter key - exercises
+  keyboard: true
+  content: |
+    Complete exercise
+  exercises:
+    - !OneLineNoEnter asdfjkl;asdfjkl;asdfjkl;
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Enter key - exercises
+  keyboard: true
+  content: |
+    Complete exercise
+  exercises:
+    - !OneLineNoEnter asdfjkl;asdfjkl;asdfjkl;asdfjkl;
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Enter key - exercises
+  keyboard: true
+  content: |
+    Complete exercise
+  exercises:
+    - !OneLineNoEnter asdfjkl;asdfjkl;asdfjkl;asdfjkl;asdfjkl;
+  content2: |
+    Enter requested line and press <Enter> key.
+- title: Space key
+  content: |
+    To make space between words or sentences you should press with thumb
+    finger side <Space> key. Then quickly release thumb finger.
+    Tumb finger is mostly used just for hitting space key. So you can keep
+    thumb finger on space key all time. It is not important which hand finger
+    you use for that.
+  content2: |
+    Press <Enter> to continue
+- title: Space key usage
+  keyboard: true
+  content: |
+    Complete exercise, using thumb finger to create spaces.
+    Learn to enter space quickly
+  exercises:
+    - !OneLineNoEnter fff jjj ddd kkk sss lll aaa ;;;
+  content2: |
+    Finish exercise by hitting <Enter>
+- title: Space key usage
+  keyboard: true
+  content: |
+    Complete exercise.
+  exercises:
+    - !OneLineNoEnter fff jjj ddd kkk sss lll aaa ;;;
+- title: Space key usage
+  keyboard: true
+  content: |
+    Complete exercise.
+  exercises:
+    - !OneLineNoEnter fff jjj ddd kkk sss lll aaa ;;;
+- title: Space key usage
+  keyboard: true
+  content: |
+    Complete exercise.
+  exercises:
+    - !OneLineNoEnter j k l ; f d s a j k l ; f d s a
+- title: Space key usage
+  keyboard: true
+  content: |
+    Complete exercise.
+  exercises:
+    - !OneLineNoEnter a s d f ; l k j a s d f ; l k j
+- title: Space key usage
+  keyboard: true
+  content: |
+    Complete exercise.
+  exercises:
+    - !OneLineNoEnter j k l ; f d s a j k l ; f d s a
+- title: Home keys practice
+  content: |
+    Write each line without looking onto onscreen keyboard.
+    Finish lines by hitting <Enter>
+    Learn to hit keys with quick strokes and return finger
+    to home position when hitting <Enter>
+  content2: |
+    Press <Enter> to continue
+- title: Home keys practice
+  content: |
+    Complete exercise.
+  exercises:
+    - !Multiline |
+      a s d f j k l ; a s d f j k l ; a s d f
+      aa ss dd ff jj kk ll ;; aa ss dd ff jjj
+      aaa sss ddd fff aaa sss ddd fff aaa sss
+      jjj kkk lll ;;; jjj kkk lll ;;; jjj kkk
+      fff jjj fff jjj ff jj ff jj fff fff jjj
+- title: Home keys practice
+  content: |
+    Complete exercise.
+  exercises:
+    - !Multiline |
+      kkk ddd kkk ddd kk dd kk dd kkk ddd kkk
+      sss lll sss lll ss ll ss ll sss lll sss
+      aaa jjj aaa jjj aa jj aa jj aaa jjj aaa
+      a a add ads adds all ask dad all daff a
+      a a ja ja las las k k ka ka aka laka sl
+- title: Home keys practice
+  content: |
+    Complete exercise.
+  exercises:
+    - !Multiline |
+      a sa sa sak sak saka saka a sa sak saka
+      l la la las las lasa lasa l la las lasa
+      s s; s; s;k s;k s;ka s;ka s s; s;k s;ka
+      flak; adj; a sad; salsa lass as ads jal
+      fff flak; adj; sad; flask asks la salad
+- title: Home keys practice
+  content: |
+    Complete exercise.
+  exercises:
+    - !Multiline |
+      a ad ad; alas alfalfa ads kaka all fads
+      fads salad dallas fall add lads lad sas

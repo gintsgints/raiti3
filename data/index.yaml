@@ -1,0 +1,26 @@
+lessons:
+  - file: l01_intro
+    title: Lesson 1 - Introduction
+  - file: l02_base_keys
+    title: Lesson 2 - Base Keys
+  - file: l03_eti_keys
+    title: Lesson 3 - Letters E, T, I and left <Shift>
+  - file: l04_urn_keys
+    title: Lesson 4 - Letters U, R, N and dot <.>.
+  - file: l05_review
+    title: Lesson 5 - Review
+  - file: l06_ymv_keys
+    title: Lesson 6 - Letters Y, M, V and right <Shift>
+  - file: l07_pzo_keys
+    title: Lesson 7 - Letters P, Z, O and comma <,>
+  - file: l08_wgb_keys
+    title: Lesson 8 - Letters W, G, Z and <Tab> key
+  - file: l09_review2
+    title: Lesson 9 - Review 2
+  - file: l10_qhc_keys
+    title: Lesson 10 - Letters Q, H, C and quotes <'> <">
+  - file: l11_x_keys
+    title: Lesson 11 - Letter X, Symbols - / [ and CapsLock
+  - file: l12_more_symbols
+    title: Lesson 12 - Symbols - ], < and >
+ 
