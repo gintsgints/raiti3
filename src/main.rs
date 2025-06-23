@@ -1,4 +1,4 @@
-use sdl2::{event::Event, keyboard::Keycode};
+use sdl2::{event::Event, gfx::primitives::DrawRenderer, keyboard::Keycode, rect::Rect};
 use std::{collections::HashSet, time::Duration};
 
 use config::Config;
@@ -16,11 +16,18 @@ fn main() -> Result<()> {
     let config = Config::load()?;
     let keyboard_config = keyboard_config::KeyboardConfig::load(&config.current_keyboard_layout)?;
 
-    let _window = video_subsystem
-        .window("Keyboard", 800, 600)
+    let window = video_subsystem
+        .window("Raiti", 800, 600)
         .position_centered()
         .build()
         .map_err(|e| e.to_string())?;
+
+    let mut canvas = window.into_canvas().build()?;
+    canvas.set_draw_color(sdl2::pixels::Color::RGB(0, 0, 0));
+    canvas.clear();
+
+    canvas.rounded_box(100, 100, 300, 200, keyboard_config.keyboard_corner_curve, sdl2::pixels::Color::RGB(0, 0, 255))?;
+    canvas.present();
 
     let mut events = sdl_context.event_pump()?;
 

@@ -62,12 +62,13 @@ pub struct Row {
 
 #[derive(Debug, Clone, Default, Deserialize)]
 pub struct KeyboardConfig {
-    cols_for_keys: f32,
-    space_between_keys: f32,
-    keyboard_side_padding: f32,
-    key_text_top_pad: f32,
-    key_text_left_pad: f32,
-    rows: Vec<Row>,
+    pub cols_for_keys: f32,
+    pub space_between_keys: f32,
+    pub keyboard_corner_curve: i16,
+    pub keyboard_side_padding: f32,
+    pub key_text_top_pad: f32,
+    pub key_text_left_pad: f32,
+    pub rows: Vec<Row>,
 }
 
 impl KeyboardConfig {
