@@ -7,163 +7,162 @@ key_corner_curve: 3.0
 key_text_top_pad: 5.0
 key_text_left_pad: 5.0
 rows:
-  - keys: # Functional keys not shown as we do not teach them
   - keys:
-    - key: !Character '`'
+    - key_code: !Character '`'
       label1: '~'
       label2: '`'
-    - key: !Character '1'
+    - key_code: !Character '1'
       label1: '!'
       label2: '1'
-    - key: !Character '2'
+    - key_code: !Character '2'
       label1: '@'
       label2: '2'
-    - key: !Character '3'
+    - key_code: !Character '3'
       label1: '#'
       label2: '3'
-    - key: !Character '4'
+    - key_code: !Character '4'
       label1: '$'
       label2: '4'
-    - key: !Character '5'
+    - key_code: !Character '5'
       label1: '%'
       label2: '5'
-    - key: !Character '6'
+    - key_code: !Character '6'
       label1: '^'
       label2: '6'
-    - key: !Character '7'
+    - key_code: !Character '7'
       label1: '&'
       label2: '7'
-    - key: !Character '8'
+    - key_code: !Character '8'
       label1: '*'
       label2: '8'
-    - key: !Character '9'
+    - key_code: !Character '9'
       label1: '('
       label2: '9'
-    - key: !Character '0'
+    - key_code: !Character '0'
       label1: ')'
       label2: '0'
-    - key: !Character '-'
+    - key_code: !Character '-'
       label1: '_'
       label2: '-'
-    - key: !Character '='
+    - key_code: !Character '='
       label1: '+'
       label2: '='
-    - key: !Named Backspace
+    - key_code: !Named Backspace
       label1: 'Back'
       width_ratio: 1.57
   - keys:
-    - key: !Named Tab
+    - key_code: !Named Tab
       label1: 'Tab'
       width_ratio: 1.55
-    - key: !Character q
+    - key_code: !Character q
       label1: 'Q'
-    - key: !Character w
+    - key_code: !Character w
       label1: 'W'
-    - key: !Character e
+    - key_code: !Character e
       label1: 'E'
-    - key: !Character r
+    - key_code: !Character r
       label1: 'R'
-    - key: !Character t
+    - key_code: !Character t
       label1: 'T'
-    - key: !Character y
+    - key_code: !Character y
       label1: 'Y'
-    - key: !Character u
+    - key_code: !Character u
       label1: 'U'
-    - key: !Character i
+    - key_code: !Character i
       label1: 'I'
-    - key: !Character o
+    - key_code: !Character o
       label1: 'O'
-    - key: !Character p
+    - key_code: !Character p
       label1: 'P'
-    - key: !Character '['
+    - key_code: !Character '['
       label1: '{'
       label2: '['
-    - key: !Character ']'
+    - key_code: !Character ']'
       label1: '}'
       label2: ']'
-    - key: !Character '\'
+    - key_code: !Character '\'
       label1: '|'
       label2: '\'
   - keys:
-    - key: !Unidentified
+    - key_code: !Unidentified
       label1: 'Caps'
       width_ratio: 2.0
-    - key: !Character a
+    - key_code: !Character a
       label1: 'A'
-    - key: !Character s
+    - key_code: !Character s
       label1: 'S'
-    - key: !Character d
+    - key_code: !Character d
       label1: 'D'
-    - key: !Character f
+    - key_code: !Character f
       label1: 'F'
-    - key: !Character g
+    - key_code: !Character g
       label1: 'G'
-    - key: !Character h
+    - key_code: !Character h
       label1: 'H'
-    - key: !Character j
+    - key_code: !Character j
       label1: 'J'
-    - key: !Character k
+    - key_code: !Character k
       label1: 'K'
-    - key: !Character l
+    - key_code: !Character l
       label1: 'L'
-    - key: !Character ;
+    - key_code: !Character ;
       label1: ':'
       label2: ';'
-    - key: !Character '"'
+    - key_code: !Character '"'
       label1: '"'
       label2: '"'
-    - key: !Unidentified
+    - key_code: !Unidentified
       label1: 'Enter'
       width_ratio: 1.58
   - keys:
-    - key: !Named Shift
+    - key_code: !Named Shift
       label1: 'Shift'
       width_ratio: 2.3
       location: !Left
-    - key: !Character 'z'
+    - key_code: !Character 'z'
       label1: 'Z'
-    - key: !Character 'x'
+    - key_code: !Character 'x'
       label1: 'X'
-    - key: !Character 'c'
+    - key_code: !Character 'c'
       label1: 'C'
-    - key: !Character 'v'
+    - key_code: !Character 'v'
       label1: 'V'
-    - key: !Character 'b'
+    - key_code: !Character 'b'
       label1: 'B'
-    - key: !Character 'n'
+    - key_code: !Character 'n'
       label1: 'N'
-    - key: !Character 'm'
+    - key_code: !Character 'm'
       label1: 'M'
-    - key: !Character ','
+    - key_code: !Character ','
       label1: '<'
       label2: ','
-    - key: !Character '.'
+    - key_code: !Character '.'
       label1: '>'
       label2: '.'
-    - key: !Character '/'
+    - key_code: !Character '/'
       label1: '?'
       label2: '/'
-    - key: !Named Shift
+    - key_code: !Named Shift
       label1: 'Shift'
       width_ratio: 2.3
       location: !Right
   - keys:
-    - key: !Named Control
+    - key_code: !Named Control
       label1: 'Ctrl'
       width_ratio: 1.57
       location: !Left
-    - key: !Named Alt
+    - key_code: !Named Alt
       label1: 'Alt'
       width_ratio: 1.56
       location: !Left
-    - key: !Named Space
+    - key_code: !Named Space
       label1: 'Space'
       width_ratio: 6
-    - key: !Named Alt
+    - key_code: !Named Alt
       label1: 'AltGr'
       width_ratio: 1.56
       location: !Right
-    - key: !Named Control
+    - key_code: !Named Control
       label1: 'Ctrl'
       width_ratio: 1.56
       location: !Right

@@ -34,6 +34,9 @@ fn main() -> Result<()> {
             };
         }
 
+        canvas.set_draw_color(sdl2::pixels::Color::RGB(0xFF, 0xFF, 0xFF));
+        canvas.clear();
+
         keyboard.draw(&events, &mut canvas)?;
         canvas.present();
 

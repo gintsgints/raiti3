@@ -1,168 +1,161 @@
 name: "qwerty MacBook"
-cols_for_keys: 16.0
-space_between_keys: 5.0
+cols_for_keys: 16
+space_between_keys: 5
 keyboard_corner_curve: 8
-keyboard_side_padding: 5.0
-key_corner_curve: 3.0
-key_text_top_pad: 5.0
-key_text_left_pad: 5.0
+keyboard_side_padding: 5
+key_corner_curve: 3
+key_text_top_pad: 5
+key_text_left_pad: 5
 rows:
-  - keys: # Functional keys not shown as we do not teach them
   - keys:
-    - key: !Character '§'
+    - key_code: 167
       label1: '±'
       label2: '§'
-    - key: !Character '1'
+    - key_code: 49
       label1: '!'
       label2: '1'
-    - key: !Character '2'
+    - key_code: 50
       label1: '@'
       label2: '2'
-    - key: !Character '3'
+    - key_code: 51
       label1: '£'
       label2: '3'
-    - key: !Character '4'
+    - key_code: 52
       label1: '$'
       label2: '4'
-    - key: !Character '5'
+    - key_code: 53
       label1: '%'
       label2: '5'
-    - key: !Character '6'
+    - key_code: 54
       label1: '^'
       label2: '6'
-    - key: !Character '7'
+    - key_code: 55
       label1: '&'
       label2: '7'
-    - key: !Character '8'
+    - key_code: 56
       label1: '*'
       label2: '8'
-    - key: !Character '9'
+    - key_code: 57
       label1: '('
       label2: '9'
-    - key: !Character '0'
+    - key_code: 48
       label1: ')'
       label2: '0'
-    - key: !Character '-'
+    - key_code: 45
       label1: '_'
       label2: '-'
-    - key: !Character '='
+    - key_code: 61
       label1: '+'
       label2: '='
-    - key: !Named Backspace
+    - key_code: 8
       label1: '⌫'
       width_ratio: 1.57
   - keys:
-    - key: !Named Tab
+    - key_code: 9
       label1: 'Tab'
       width_ratio: 1.57 
-    - key: !Character q
+    - key_code: 113
       label1: 'Q'
-    - key: !Character w
+    - key_code: 119
       label1: 'W'
-    - key: !Character e
+    - key_code: 101
       label1: 'E'
-    - key: !Character r
+    - key_code: 114
       label1: 'R'
-    - key: !Character t
+    - key_code: 116
       label1: 'T'
-    - key: !Character y
+    - key_code: 121
       label1: 'Y'
-    - key: !Character u
+    - key_code: 117
       label1: 'U'
-    - key: !Character i
+    - key_code: 105
       label1: 'I'
-    - key: !Character o
+    - key_code: 111
       label1: 'O'
-    - key: !Character p
+    - key_code: 112
       label1: 'P'
-    - key: !Character '['
+    - key_code: 91
       label1: '{'
-    - key: !Character ']'
+    - key_code: 93
       label1: '}'
-    - key: !Named Enter
+    - key_code: 13
       label1: 'Enter'
   - keys:
-    - key: !Unidentified
+    - key_code: 0
       label1: '⇪'
       width_ratio: 2.0 
-    - key: !Character a
+    - key_code: 97
       label1: 'A'
-    - key: !Character s
+    - key_code: 115
       label1: 'S'
-    - key: !Character d
+    - key_code: 100
       label1: 'D'
-    - key: !Character f
+    - key_code: 102
       label1: 'F'
-    - key: !Character g
+    - key_code: 103
       label1: 'G'
-    - key: !Character h
+    - key_code: 104
       label1: 'H'
-    - key: !Character j
+    - key_code: 106
       label1: 'J'
-    - key: !Character k
+    - key_code: 107
       label1: 'K'
-    - key: !Character l
+    - key_code: 108
       label1: 'L'
-    - key: !Character ;
+    - key_code: 59
       label1: ':'
-    - key: !Character ''''
+    - key_code: 39
       label1: '"'
-    - key: !Character \
+    - key_code: 92
       label1: '|'
   - keys:
-    - key: !Named Shift
+    - key_code: 1073742049
       label1: '⇧'
       width_ratio: 1.3
-      location: !Left
-    - key: !Character '`'
+    - key_code: 96
       label1: '`'
-    - key: !Character 'z'
+    - key_code: 122
       label1: 'Z'
-    - key: !Character 'x'
+    - key_code: 120
       label1: 'X'
-    - key: !Character 'c'
+    - key_code: 99
       label1: 'C'
-    - key: !Character 'v'
+    - key_code: 118
       label1: 'V'
-    - key: !Character 'b'
+    - key_code: 98
       label1: 'B'
-    - key: !Character 'n'
+    - key_code: 110
       label1: 'N'
-    - key: !Character 'm'
+    - key_code: 109
       label1: 'M'
-    - key: !Character ','
+    - key_code: 44
       label1: ','
-    - key: !Character '.'
+    - key_code: 46
       label1: '.'
-    - key: !Character '/'
+    - key_code: 47
       label1: '/'
-    - key: !Named Shift
+    - key_code: 1073742053
       label1: '⇧'
       width_ratio: 2.3
-      location: !Right
   - keys:
-    - key: !Unidentified
+    - key_code: 0
       label1: 'fn'
-    - key: !Named Control
+    - key_code: 1073742048
       label1: '⌃'
       label2: 'ctrl'
-      location: !Left
-    - key: !Named Alt
+    - key_code: 1073742050
       label1: '⌥'
       label2: 'option'
-      location: !Left
-    - key: !Named Super
+    - key_code: 1073742051
       label1: '⌘'
       label2: 'cmd'
       location: !Left
-    - key: !Named Space
+    - key_code: 32
       label1: 'Space'
       width_ratio: 6
-    - key: !Named Super
+    - key_code: 1073742055
       label1: '⌘'
       label2: 'cmd'
-      location: !Right
-    - key: !Named Alt
+    - key_code: 1073742054
       label1: '⌥'
       label2: 'option'
-      location: !Right
