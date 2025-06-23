@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 mod environment;
+pub use environment::{config_file, data_dir};
 
 pub type Error = Box<dyn std::error::Error>;
 pub type Result<T> = std::result::Result<T, Error>;
@@ -18,7 +19,7 @@ impl Config {
     }
 
     pub fn load() -> Result<Self> {
-        let config_file = environment::config_file()?;
+        let config_file = config_file()?;
         if config_file.exists() {
             let config: Config = serde_yaml::from_str(
                 &std::fs::read_to_string(config_file)?,

@@ -17,6 +17,10 @@ pub fn config_file() -> Result<PathBuf> {
     Ok(dir.join(CONFIG_FILE_NAME))
 }
 
+pub fn data_dir() -> Result<PathBuf> {
+    Ok(env::current_dir()?.join("data"))
+}
+
 pub fn platform_specific_config_dir() -> Result<PathBuf> {
     let dir = dirs_next::config_dir();
     match dir {

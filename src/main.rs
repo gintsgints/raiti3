@@ -4,6 +4,7 @@ use std::{collections::HashSet, time::Duration};
 use config::Config;
 
 mod config;
+mod keyboard_config;
 
 pub type Result<T> = std::result::Result<T, Error>;
 pub type Error = Box<dyn std::error::Error>;
@@ -13,6 +14,7 @@ fn main() -> Result<()> {
     let video_subsystem = sdl_context.video()?;
 
     let config = Config::load()?;
+    let keyboard_config = keyboard_config::KeyboardConfig::load(&config.current_keyboard_layout)?;
 
     let _window = video_subsystem
         .window("Keyboard", 800, 600)
