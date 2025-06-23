@@ -20,6 +20,7 @@ fn main() -> Result<()> {
     let window = video_subsystem
         .window("Raiti", 800, 600)
         .position_centered()
+        .resizable()
         .build()
         .map_err(|e| e.to_string())?;
 
