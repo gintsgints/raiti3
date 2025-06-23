@@ -1,11 +1,11 @@
 use sdl2::{event::Event, gfx::primitives::DrawRenderer, keyboard::Keycode, rect::Rect};
 use std::{collections::HashSet, time::Duration};
 
-use config::Config;
-
 mod config;
 mod keyboard_config;
+mod prelude;
 
+pub use crate::prelude::*;
 pub type Result<T> = std::result::Result<T, Error>;
 pub type Error = Box<dyn std::error::Error>;
 
@@ -14,7 +14,7 @@ fn main() -> Result<()> {
     let video_subsystem = sdl_context.video()?;
 
     let config = Config::load()?;
-    let keyboard_config = keyboard_config::KeyboardConfig::load(&config.current_keyboard_layout)?;
+    let keyboard_config = KeyboardConfig::load(&config.current_keyboard_layout)?;
 
     let window = video_subsystem
         .window("Raiti", 800, 600)
