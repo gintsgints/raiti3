@@ -20,7 +20,7 @@ pub fn config_file() -> Result<PathBuf> {
 pub fn platform_specific_config_dir() -> Result<PathBuf> {
     let dir = dirs_next::config_dir();
     match dir {
-        Some(dir) => return Ok(dir.join("raiti").join(CONFIG_FILE_NAME)),
+        Some(dir) => Ok(dir.join("raiti").join(CONFIG_FILE_NAME)),
         None => Err("Could not find config directory".into()),
     }
 }
