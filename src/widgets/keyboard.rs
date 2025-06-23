@@ -2,8 +2,8 @@ use std::collections::HashSet;
 
 use crate::prelude::*;
 use sdl2::{
-    EventPump, gfx::primitives::DrawRenderer, keyboard::Keycode, pixels::Color, render::Canvas,
-    video::Window,
+    EventPump, gfx::primitives::DrawRenderer, keyboard::Keycode, pixels::Color, rect::Rect,
+    render::Canvas, video::Window,
 };
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -28,7 +28,12 @@ impl Keyboard {
         })
     }
 
-    pub fn draw(&mut self, events: &EventPump, canvas: &mut Canvas<Window>) -> Result<()> {
+    pub fn draw(
+        &mut self,
+        events: &EventPump,
+        canvas: &mut Canvas<Window>,
+        area: Rect,
+    ) -> Result<()> {
         // Create a set of pressed Keys.
         let keys: HashSet<i32> = events
             .keyboard_state()
@@ -48,11 +53,12 @@ impl Keyboard {
             }
         }
 
-        let simple_key_width = canvas.window().size().0 as i16 / self.keyboard_config.cols_for_keys;
+        // TODO: Find out why keyboard is not drawn in the middle of the screen.
+        let simple_key_width = (area.size().0 as i16 - 2 * self.keyboard_config.keyboard_side_padding) / self.keyboard_config.cols_for_keys;
 
-        let mut key_y = self.keyboard_config.keyboard_side_padding;
+        let mut key_y = area.y as i16 + self.keyboard_config.keyboard_side_padding;
         for row in self.keyboard_config.rows.iter() {
-            let mut key_x = self.keyboard_config.keyboard_side_padding;
+            let mut key_x = area.x as i16 + self.keyboard_config.keyboard_side_padding;
             for keyspec in row.keys.iter() {
                 // Check if the key is pressed
                 let key_color = if keys.contains(&keyspec.key_code) {
