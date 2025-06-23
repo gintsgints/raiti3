@@ -4,15 +4,13 @@ use sdl2::{gfx::primitives::DrawRenderer, render::Canvas, video::Window};
 pub type Result<T> = std::result::Result<T, Error>;
 pub type Error = Box<dyn std::error::Error>;
 
-pub struct Keyboard<'a> {
-    config: &'a Config,
+pub struct Keyboard {
     keyboard_config: KeyboardConfig,
 }
 
-impl Keyboard<'_> {
+impl Keyboard {
     pub fn new(config: &Config) -> Result<Keyboard> {
         Ok(Keyboard {
-            config,
             keyboard_config: KeyboardConfig::load(&config.current_keyboard_layout)?,
         })
     }
