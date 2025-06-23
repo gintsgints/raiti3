@@ -1,9 +1,10 @@
-use sdl2::{event::Event, gfx::primitives::DrawRenderer, keyboard::Keycode, rect::Rect};
+use sdl2::{event::Event, keyboard::Keycode};
 use std::{collections::HashSet, time::Duration};
 
 mod config;
 mod keyboard_config;
 mod prelude;
+mod widgets;
 
 pub use crate::prelude::*;
 pub type Result<T> = std::result::Result<T, Error>;
@@ -14,7 +15,7 @@ fn main() -> Result<()> {
     let video_subsystem = sdl_context.video()?;
 
     let config = Config::load()?;
-    let keyboard_config = KeyboardConfig::load(&config.current_keyboard_layout)?;
+    let keyboard = Keyboard::new(&config)?;
 
     let window = video_subsystem
         .window("Raiti", 800, 600)
@@ -23,10 +24,7 @@ fn main() -> Result<()> {
         .map_err(|e| e.to_string())?;
 
     let mut canvas = window.into_canvas().build()?;
-    canvas.set_draw_color(sdl2::pixels::Color::RGB(0, 0, 0));
-    canvas.clear();
-
-    canvas.rounded_box(100, 100, 300, 200, keyboard_config.keyboard_corner_curve, sdl2::pixels::Color::RGB(0, 0, 255))?;
+    keyboard.draw(&mut canvas)?;
     canvas.present();
 
     let mut events = sdl_context.event_pump()?;
