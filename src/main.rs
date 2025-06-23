@@ -1,5 +1,5 @@
-use sdl2::{event::Event, keyboard::Keycode};
-use std::{collections::HashSet, time::Duration};
+use sdl2::event::Event;
+use std::time::Duration;
 
 mod config;
 mod keyboard_config;
@@ -15,7 +15,7 @@ fn main() -> Result<()> {
     let video_subsystem = sdl_context.video()?;
 
     let config = Config::load()?;
-    let keyboard = Keyboard::new(&config)?;
+    let mut keyboard = Keyboard::new(&config)?;
 
     let window = video_subsystem
         .window("Raiti", 800, 600)
@@ -27,8 +27,6 @@ fn main() -> Result<()> {
 
     let mut events = sdl_context.event_pump()?;
 
-    let mut prev_keys = HashSet::new();
-
     'running: loop {
         for event in events.poll_iter() {
             if let Event::Quit { .. } = event {
@@ -36,24 +34,7 @@ fn main() -> Result<()> {
             };
         }
 
-        // Create a set of pressed Keys.
-        let keys = events
-            .keyboard_state()
-            .pressed_scancodes()
-            .filter_map(Keycode::from_scancode)
-            .collect();
-
-        // Get the difference between the new and old sets.
-        let new_keys = &keys - &prev_keys;
-        let old_keys = &prev_keys - &keys;
-
-        if !new_keys.is_empty() || !old_keys.is_empty() {
-            println!("new_keys: {:?}\told_keys:{:?}", new_keys, old_keys);
-        }
-
-        prev_keys = keys;
-
-        keyboard.draw(&mut canvas)?;
+        keyboard.draw(&events, &mut canvas)?;
         canvas.present();
 
         std::thread::sleep(Duration::from_millis(100));
