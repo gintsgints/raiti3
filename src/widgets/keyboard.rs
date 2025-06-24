@@ -1,9 +1,9 @@
 use std::collections::HashSet;
 
-use crate::prelude::*;
+use crate::{prelude::*, widgets::text_box};
 use sdl2::{
     EventPump, gfx::primitives::DrawRenderer, keyboard::Keycode, pixels::Color, rect::Rect,
-    render::Canvas, video::Window,
+    render::Canvas, ttf::Sdl2TtfContext, video::Window,
 };
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -32,6 +32,7 @@ impl Keyboard {
         &mut self,
         events: &EventPump,
         canvas: &mut Canvas<Window>,
+        ttf_context: &Sdl2TtfContext,
         area: Rect,
     ) -> Result<()> {
         // Create a set of pressed Keys.
@@ -54,7 +55,9 @@ impl Keyboard {
         }
 
         // TODO: Find out why keyboard is not drawn in the middle of the screen.
-        let simple_key_width = (area.size().0 as i16 - 2 * self.keyboard_config.keyboard_side_padding) / self.keyboard_config.cols_for_keys;
+        let simple_key_width = (area.size().0 as i16
+            - 2 * self.keyboard_config.keyboard_side_padding)
+            / self.keyboard_config.cols_for_keys;
 
         let mut key_y = area.y as i16 + self.keyboard_config.keyboard_side_padding;
         for row in self.keyboard_config.rows.iter() {
@@ -75,6 +78,34 @@ impl Keyboard {
                     self.keyboard_config.keyboard_corner_curve,
                     key_color,
                 )?;
+
+                text_box(
+                    canvas,
+                    ttf_context,
+                    Rect::new(
+                        key_x as i32 + 5,
+                        key_y as i32 + 5,
+                        (key_x + width) as u32,
+                        ((key_y + simple_key_width) / 2) as u32,
+                    ),
+                    12,
+                    &keyspec.label1,
+                )?;
+                if !keyspec.label2.is_empty() {
+                    text_box(
+                        canvas,
+                        ttf_context,
+                        Rect::new(
+                            key_x as i32 + 5,
+                            (key_y + simple_key_width / 2) as i32,
+                            (key_x + width) as u32,
+                            ((key_y + simple_key_width) / 2) as u32,
+                        ),
+                        12,
+                        &keyspec.label2,
+                    )?;
+                }
+
                 key_x += self.keyboard_config.keyboard_side_padding + width;
             }
             key_y += simple_key_width + self.keyboard_config.space_between_keys;

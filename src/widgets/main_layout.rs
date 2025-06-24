@@ -31,6 +31,6 @@ pub fn main_layout(
     widgets::text_box(canvas, ttf_context, header_rect, 24, "Overview")?;
     widgets::text_box(canvas, ttf_context, description_rect, 16, "This is a first lesson of keyboard touch typing. In this lesson we will provide ")?;
 
-    keyboard.draw(events, canvas, middle_rect)?;
+    keyboard.draw(events, canvas, ttf_context, middle_rect)?;
     Ok(())
 }
