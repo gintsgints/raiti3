@@ -1,9 +1,9 @@
 use std::collections::HashSet;
 
-use crate::{prelude::*, widgets::text_box};
+use crate::{prelude::*, widgets::key};
 use sdl2::{
-    EventPump, gfx::primitives::DrawRenderer, keyboard::Keycode, pixels::Color, rect::Rect,
-    render::Canvas, ttf::Sdl2TtfContext, video::Window,
+    EventPump, keyboard::Keycode, pixels::Color, rect::Rect, render::Canvas, ttf::Sdl2TtfContext,
+    video::Window,
 };
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -54,61 +54,34 @@ impl Keyboard {
             }
         }
 
-        // TODO: Find out why keyboard is not drawn in the middle of the screen.
-        let simple_key_width = (area.size().0 as i16
-            - 2 * self.keyboard_config.keyboard_side_padding)
+        let height = (area.size().0 as i16 - 2 * self.keyboard_config.keyboard_side_padding)
             / self.keyboard_config.cols_for_keys;
 
+        // TODO: Find out why keyboard is not drawn in the middle of the screen.
         let mut key_y = area.y as i16 + self.keyboard_config.keyboard_side_padding;
         for row in self.keyboard_config.rows.iter() {
             let mut key_x = area.x as i16 + self.keyboard_config.keyboard_side_padding;
             for keyspec in row.keys.iter() {
-                let width: i16 = (simple_key_width as f32 * keyspec.width_ratio) as i16;
                 // Check if the key is pressed
                 let key_color = if keys.contains(&keyspec.key_code) {
                     self.pressed_key_color
                 } else {
                     self.default_key_color
                 };
-                canvas.rounded_box(
-                    key_x,
-                    key_y,
-                    key_x + width,
-                    key_y + simple_key_width,
-                    self.keyboard_config.keyboard_corner_curve,
-                    key_color,
-                )?;
 
-                text_box(
+                let width = key(
                     canvas,
                     ttf_context,
-                    Rect::new(
-                        key_x as i32 + 5,
-                        key_y as i32 + 5,
-                        (key_x + width) as u32,
-                        ((key_y + simple_key_width) / 2) as u32,
-                    ),
-                    12,
-                    &keyspec.label1,
+                    (key_x, key_y),
+                    height,
+                    self.keyboard_config.keyboard_corner_curve,
+                    key_color,
+                    keyspec,
                 )?;
-                if !keyspec.label2.is_empty() {
-                    text_box(
-                        canvas,
-                        ttf_context,
-                        Rect::new(
-                            key_x as i32 + 5,
-                            (key_y + simple_key_width / 2) as i32,
-                            (key_x + width) as u32,
-                            ((key_y + simple_key_width) / 2) as u32,
-                        ),
-                        12,
-                        &keyspec.label2,
-                    )?;
-                }
 
                 key_x += self.keyboard_config.keyboard_side_padding + width;
             }
-            key_y += simple_key_width + self.keyboard_config.space_between_keys;
+            key_y += height + self.keyboard_config.space_between_keys;
         }
 
         #[cfg(debug_assertions)]
