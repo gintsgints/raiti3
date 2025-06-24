@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 mod environment;
-pub use environment::{config_file, data_dir};
+pub use environment::{config_file, data_dir, assets_dir};
 
 pub type Error = Box<dyn std::error::Error>;
 pub type Result<T> = std::result::Result<T, Error>;
