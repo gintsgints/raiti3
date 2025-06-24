@@ -9,12 +9,15 @@ pub type Result<T> = std::result::Result<T, Error>;
 #[derive(Deserialize, Serialize)]
 pub struct Config {
     pub current_keyboard_layout: String,
+    pub current_lesson: String,
+    pub current_page: usize,
+    pub current_exercise: usize,
 }
 
 impl Config {
     pub fn new() -> Self {
         Config {
-            current_keyboard_layout: "querty".to_string(),
+            ..Config::default()
         }
     }
 
@@ -38,6 +41,11 @@ impl Config {
 
 impl Default for Config {
     fn default() -> Self {
-        Self::new()
+        Config {
+            current_keyboard_layout: "querty".to_string(),
+            current_lesson: String::new(),
+            current_page: 0,
+            current_exercise: 0,
+        }
     }
 }
