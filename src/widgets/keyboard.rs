@@ -60,13 +60,13 @@ impl Keyboard {
         for row in self.keyboard_config.rows.iter() {
             let mut key_x = area.x as i16 + self.keyboard_config.keyboard_side_padding;
             for keyspec in row.keys.iter() {
+                let width: i16 = (simple_key_width as f32 * keyspec.width_ratio) as i16;
                 // Check if the key is pressed
                 let key_color = if keys.contains(&keyspec.key_code) {
                     self.pressed_key_color
                 } else {
                     self.default_key_color
                 };
-                let width: i16 = (simple_key_width as f32 * keyspec.width_ratio) as i16;
                 canvas.rounded_box(
                     key_x,
                     key_y,
