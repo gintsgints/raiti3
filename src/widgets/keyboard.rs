@@ -2,8 +2,7 @@ use std::collections::HashSet;
 
 use crate::{prelude::*, widgets::key};
 use sdl2::{
-    EventPump, keyboard::Keycode, pixels::Color, rect::Rect, render::Canvas, ttf::Sdl2TtfContext,
-    video::Window,
+    EventPump, keyboard::Keycode, pixels::Color, rect::Rect, render::Canvas, video::Window,
 };
 
 pub type Result<T> = std::result::Result<T, Error>;
@@ -32,7 +31,7 @@ impl Keyboard {
         &mut self,
         events: &EventPump,
         canvas: &mut Canvas<Window>,
-        ttf_context: &Sdl2TtfContext,
+        font: &sdl2::ttf::Font<'_, 'static>,
         area: Rect,
     ) -> Result<()> {
         // Create a set of pressed Keys.
@@ -71,7 +70,7 @@ impl Keyboard {
 
                 let width = key(
                     canvas,
-                    ttf_context,
+                    font,
                     (key_x, key_y),
                     height,
                     self.keyboard_config.keyboard_corner_curve,

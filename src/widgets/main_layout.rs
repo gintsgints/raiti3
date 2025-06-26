@@ -1,4 +1,4 @@
-use sdl2::{EventPump, rect::Rect, render::Canvas, ttf::Sdl2TtfContext, video::Window};
+use sdl2::{EventPump, rect::Rect, render::Canvas, video::Window};
 
 use crate::{
     Keyboard,
@@ -12,7 +12,9 @@ pub type Error = Box<dyn std::error::Error>;
 pub fn main_layout(
     canvas: &mut Canvas<Window>,
     keyboard: &mut Keyboard,
-    ttf_context: &Sdl2TtfContext,
+    header_font: &sdl2::ttf::Font<'_, 'static>,
+    description_font: &sdl2::ttf::Font<'_, 'static>,
+    key_font: &sdl2::ttf::Font<'_, 'static>,
     events: &EventPump,
 ) -> Result<()> {
     let section_height = canvas.viewport().size().1 / 4;
@@ -36,45 +38,37 @@ pub fn main_layout(
     );
 
     // Bottom section for additional information and exercises
-    let mut bottom_rect = Rect::new(20, section_height as i32 * 3, canvas.viewport().size().0 - 40, section_height);
+    let mut bottom_rect = Rect::new(
+        20,
+        section_height as i32 * 3,
+        canvas.viewport().size().0 - 40,
+        section_height,
+    );
 
     widgets::text_box(
         canvas,
-        ttf_context,
-        &FontSpec {
-            font_name: "OpenSans-Light.ttf",
-            point_size: 24,
-        },
+        &header_font,
         &mut header_rect,
         "Overview",
         &Align::Center,
     )?;
     widgets::text_box(
         canvas,
-        ttf_context,
-        &FontSpec {
-            font_name: "OpenSans-Light.ttf",
-            point_size: 16,
-        },
+        &description_font,
         &mut description_rect,
         "This is a first lesson of keyboard touch typing. In this lesson we will provide information which will help you with teaching course.",
         &Align::Left,
     )?;
 
-    keyboard.draw(events, canvas, ttf_context, middle_rect)?;
+    keyboard.draw(events, canvas, &key_font, middle_rect)?;
 
     widgets::text_box(
         canvas,
-        ttf_context,
-        &FontSpec {
-            font_name: "OpenSans-Light.ttf",
-            point_size: 16,
-        },
+        &description_font,
         &mut bottom_rect,
         "Press <Enter> to continue",
         &Align::Left,
     )?;
-
 
     Ok(())
 }

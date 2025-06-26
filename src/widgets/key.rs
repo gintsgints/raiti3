@@ -1,5 +1,5 @@
 use sdl2::{
-    gfx::primitives::DrawRenderer, pixels::Color, rect::Rect, render::Canvas, ttf::Sdl2TtfContext,
+    gfx::primitives::DrawRenderer, pixels::Color, rect::Rect, render::Canvas,
     video::Window,
 };
 
@@ -10,7 +10,7 @@ pub type Error = Box<dyn std::error::Error>;
 
 pub fn key(
     canvas: &mut Canvas<Window>,
-    ttf_context: &Sdl2TtfContext,
+    font: &sdl2::ttf::Font<'_, 'static>,
     point: (i16, i16),
     height: i16,
     keyboard_corner_curve: i16,
@@ -31,11 +31,7 @@ pub fn key(
     if !keyspec.label1.is_empty() {
         text_box(
             canvas,
-            ttf_context,
-            &FontSpec {
-                font_name: "MesloLGS NF Regular.ttf",
-                point_size: 12,
-            },
+            font,
             &mut Rect::new(
                 point.0 as i32 + 5,
                 point.1 as i32 + 5,
@@ -49,11 +45,7 @@ pub fn key(
     if !keyspec.label2.is_empty() {
         text_box(
             canvas,
-            ttf_context,
-            &FontSpec {
-                font_name: "MesloLGS NF Regular.ttf",
-                point_size: 12,
-            },
+            font,
             &mut Rect::new(
                 point.0 as i32 + 5,
                 (point.1 + height / 2) as i32,
