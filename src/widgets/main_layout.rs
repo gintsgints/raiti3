@@ -47,24 +47,24 @@ pub fn main_layout(
 
     widgets::text_box(
         canvas,
-        &header_font,
+        header_font,
         &mut header_rect,
         "Overview",
         &Align::Center,
     )?;
     widgets::text_box(
         canvas,
-        &description_font,
+        description_font,
         &mut description_rect,
         "This is a first lesson of keyboard touch typing. In this lesson we will provide information which will help you with teaching course.",
         &Align::Left,
     )?;
 
-    keyboard.draw(events, canvas, &key_font, middle_rect)?;
+    keyboard.draw(events, canvas, key_font, middle_rect)?;
 
     widgets::text_box(
         canvas,
-        &description_font,
+        description_font,
         &mut bottom_rect,
         "Press <Enter> to continue",
         &Align::Left,
