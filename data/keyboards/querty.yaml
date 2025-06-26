@@ -48,11 +48,13 @@ rows:
       label1: '+'
       label2: '='
     - key_code: 8
-      label1: '⌫'
+      label2: '⌫'
+      label2_align: Right
       width_ratio: 1.57
   - keys:
     - key_code: 9
-      label1: 'Tab'
+      label2: 'Tab'
+      label2_align: Left
       width_ratio: 1.57 
     - key_code: 113
       label1: 'Q'
@@ -82,8 +84,9 @@ rows:
       label1: 'Enter'
   - keys:
     - key_code: 0
-      label1: '⇪'
-      width_ratio: 2.0 
+      label2: '⇪'
+      label2_align: Left
+      width_ratio: 2.0
     - key_code: 97
       label1: 'A'
     - key_code: 115
@@ -104,16 +107,21 @@ rows:
       label1: 'L'
     - key_code: 59
       label1: ':'
+      label2: ';'
     - key_code: 39
       label1: '"'
+      label2: "'"
     - key_code: 92
       label1: '|'
+      label2: '\'
   - keys:
     - key_code: 1073742049
-      label1: '⇧'
+      label2: '⇧'
+      label2_align: Left
       width_ratio: 1.3
     - key_code: 96
-      label1: '`'
+      label1: '~'
+      label2: '`'
     - key_code: 122
       label1: 'Z'
     - key_code: 120
@@ -129,34 +137,45 @@ rows:
     - key_code: 109
       label1: 'M'
     - key_code: 44
-      label1: ','
+      label1: '<'
+      label2: ','
     - key_code: 46
-      label1: '.'
+      label1: '>'
+      label2: '.'
     - key_code: 47
-      label1: '/'
+      label1: '?'
+      label2: '/'
     - key_code: 1073742053
-      label1: '⇧'
+      label2: '⇧'
+      label2_align: Right
       width_ratio: 2.3
   - keys:
     - key_code: 0
       label1: 'fn'
+      label1_align: Right
+      label2: '🌐'
+      label2_align: Left
     - key_code: 1073742048
       label1: '⌃'
+      label1_align: Right
       label2: 'ctrl'
     - key_code: 1073742050
       label1: '⌥'
-      label2: 'option'
+      label1_align: Right
+      label2: 'opt'
     - key_code: 1073742051
       label1: '⌘'
+      label1_align: Right
       label2: 'cmd'
       width_ratio: 1.3
     - key_code: 32
-      label1: 'Space'
       width_ratio: 6
     - key_code: 1073742055
       label1: '⌘'
+      label1_align: Left
       label2: 'cmd'
       width_ratio: 1.3
     - key_code: 1073742054
       label1: '⌥'
-      label2: 'option'
+      label1_align: Left
+      label2: 'opt'

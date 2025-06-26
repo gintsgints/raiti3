@@ -2,7 +2,7 @@ use std::fs;
 
 use serde::Deserialize;
 
-use crate::config::data_dir;
+use crate::{config::data_dir, Align};
 
 pub type Error = Box<dyn std::error::Error>;
 pub type Result<T> = std::result::Result<T, Error>;
@@ -14,9 +14,14 @@ pub struct KeySpec {
     // Should be specified if key is larger than usual keys
     #[serde(default = "default_width_ratio")]
     pub width_ratio: f32,
+    #[serde(default)]
     pub label1: String,
     #[serde(default)]
+    pub label1_align: Align,
+    #[serde(default)]
     pub label2: String,
+    #[serde(default)]
+    pub label2_align: Align,
 }
 
 fn default_width_ratio() -> f32 {

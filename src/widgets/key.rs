@@ -1,8 +1,9 @@
-use crate::{keyboard_config::KeySpec, widgets::text_box};
 use sdl2::{
     gfx::primitives::DrawRenderer, pixels::Color, rect::Rect, render::Canvas, ttf::Sdl2TtfContext,
     video::Window,
 };
+
+use crate::prelude::*;
 
 pub type Result<T> = std::result::Result<T, Error>;
 pub type Error = Box<dyn std::error::Error>;
@@ -27,30 +28,34 @@ pub fn key(
         key_color,
     )?;
 
-    text_box(
-        canvas,
-        ttf_context,
-        Rect::new(
-            point.0 as i32 + 5,
-            point.1 as i32 + 5,
-            (point.0 + width) as u32,
-            ((point.1 + height) / 2) as u32,
-        ),
-        12,
-        &keyspec.label1,
-    )?;
+    if !keyspec.label1.is_empty() {
+        text_box(
+            canvas,
+            ttf_context,
+            &mut Rect::new(
+                point.0 as i32 + 5,
+                point.1 as i32 + 5,
+                (width - 10) as u32,
+                (height / 2) as u32,
+            ),
+            12,
+            &keyspec.label1,
+            &keyspec.label1_align,
+        )?;
+    }
     if !keyspec.label2.is_empty() {
         text_box(
             canvas,
             ttf_context,
-            Rect::new(
+            &mut Rect::new(
                 point.0 as i32 + 5,
                 (point.1 + height / 2) as i32,
-                (point.0 + width) as u32,
-                ((point.1 + height) / 2) as u32,
+                (width - 10) as u32,
+                (height / 2) as u32,
             ),
             12,
             &keyspec.label2,
+            &keyspec.label2_align,
         )?;
     }
     Ok(width)

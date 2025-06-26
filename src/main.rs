@@ -5,6 +5,7 @@ mod config;
 mod keyboard_config;
 mod prelude;
 mod widgets;
+mod common;
 
 pub use crate::prelude::*;
 
