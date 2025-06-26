@@ -32,13 +32,16 @@ pub fn key(
         text_box(
             canvas,
             ttf_context,
+            &FontSpec {
+                font_name: "MesloLGS NF Regular.ttf",
+                point_size: 12,
+            },
             &mut Rect::new(
                 point.0 as i32 + 5,
                 point.1 as i32 + 5,
                 (width - 10) as u32,
                 (height / 2) as u32,
             ),
-            12,
             &keyspec.label1,
             &keyspec.label1_align,
         )?;
@@ -47,13 +50,16 @@ pub fn key(
         text_box(
             canvas,
             ttf_context,
+            &FontSpec {
+                font_name: "MesloLGS NF Regular.ttf",
+                point_size: 12,
+            },
             &mut Rect::new(
                 point.0 as i32 + 5,
                 (point.1 + height / 2) as i32,
                 (width - 10) as u32,
                 (height / 2) as u32,
             ),
-            12,
             &keyspec.label2,
             &keyspec.label2_align,
         )?;

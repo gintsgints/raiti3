@@ -15,8 +15,9 @@ pub fn main_layout(
     ttf_context: &Sdl2TtfContext,
     events: &EventPump,
 ) -> Result<()> {
-    let section_height = canvas.viewport().size().1 / 3;
+    let section_height = canvas.viewport().size().1 / 4;
 
+    // Top description section
     let top_rect = Rect::new(20, 20, canvas.viewport().size().0 - 40, section_height - 40);
     let mut header_rect = Rect::new(top_rect.x, top_rect.y, top_rect.width(), 50);
     let mut description_rect = Rect::new(
@@ -26,31 +27,54 @@ pub fn main_layout(
         section_height - 50,
     );
 
+    // Middle section for keyboard
     let middle_rect = Rect::new(
         20,
         section_height as i32,
         canvas.viewport().size().0 - 40,
-        section_height,
+        section_height * 2,
     );
-    // let bottom_rect = Rect::new(0, section_height as i32 * 2, canvas.viewport().size().0, section_height);
+
+    // Bottom section for additional information and exercises
+    let mut bottom_rect = Rect::new(20, section_height as i32 * 3, canvas.viewport().size().0 - 40, section_height);
 
     widgets::text_box(
         canvas,
         ttf_context,
+        &FontSpec {
+            font_name: "OpenSans-Light.ttf",
+            point_size: 24,
+        },
         &mut header_rect,
-        24,
         "Overview",
         &Align::Center,
     )?;
     widgets::text_box(
         canvas,
         ttf_context,
+        &FontSpec {
+            font_name: "OpenSans-Light.ttf",
+            point_size: 16,
+        },
         &mut description_rect,
-        16,
-        "This is a first lesson of keyboard touch typing. In this lesson we will provide ",
+        "This is a first lesson of keyboard touch typing. In this lesson we will provide information which will help you with teaching course.",
         &Align::Left,
     )?;
 
     keyboard.draw(events, canvas, ttf_context, middle_rect)?;
+
+    widgets::text_box(
+        canvas,
+        ttf_context,
+        &FontSpec {
+            font_name: "OpenSans-Light.ttf",
+            point_size: 16,
+        },
+        &mut bottom_rect,
+        "Press <Enter> to continue",
+        &Align::Left,
+    )?;
+
+
     Ok(())
 }
